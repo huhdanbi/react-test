@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
+import { useStore } from '@/store/store';
 
+import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 
+import MenuIcon from '@mui/icons-material/Menu';
+
 export default function Header() {
-
-	const [ isOpend, setIsOpend ] = useState(false);
-
-	const toggleGnb = () => {
-		setIsOpend(!isOpend)
-	}
+	const toggleNav = useStore((state) => state.toggleNav);
 
 	return (
 		<AppBar className="header" position="fixed" elevation={0}>
 			<div className="inner-header">
 				<div className="left-sec">
 					TEST
-					<Button onClick={() => toggleGnb()}>
-						<span>menu</span>
+					<Button onClick={toggleNav}>
+						<MenuIcon />
 					</Button>
 				</div>
 
 				<div className="right-sec">
 					<Button>
-						qf
+						profile
 					</Button>
 				</div>
 			</div>

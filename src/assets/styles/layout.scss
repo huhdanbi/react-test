@@ -20,6 +20,12 @@ $cont-background: #eef2f6;
       justify-content: space-between;
     }
 
+    .left-sec {
+      display: flex;
+      justify-content: space-between;
+      width: calc($left-width - 20px);
+    }
+
     .right-sec {
 
     }
@@ -63,10 +69,15 @@ $cont-background: #eef2f6;
       width: calc(100vw - $left-width);
       padding-right: 15px;
 
+      &.full{
+        width:100%;
+        padding: 0 15px;
+      }
+
       .contents {
         height: 100%;
         padding:20px 25px;
-        background-color: $cont-background
+        background-color: $cont-background;
       }
     }
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useStore } from '@/store/store';
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -26,24 +27,29 @@ const routeList = [
 ]
 
 export default function LeftGnb() {
+	const isNavOpend = useStore((state) => state.isNavOpend);
 	
 	const location = useLocation();
 	const { pathname } = location;
 
 	return (
-		<div className="left-gnb">
-			<List className="list-gnb">
-				{
-					routeList.map((e, i) => (
-						<ListItem key={i}>
-							<Button component={Link} to={e.path} className={`link-gnb ${pathname === e.path && "active"}`}>
-								{e.icon}
-								{e.name}
-							</Button>
-						</ListItem>
-					))
-				}
-			</List>
-		</div>
+		<>
+			{ isNavOpend && 
+				<div className="left-gnb">
+					<List className="list-gnb">
+						{
+							routeList.map((e, i) => (
+								<ListItem key={i}>
+									<Button component={Link} to={e.path} className={`link-gnb ${pathname === e.path && "active"}`}>
+										{e.icon}
+										{e.name}
+									</Button>
+								</ListItem>
+							))
+						}
+					</List>
+				</div>
+			}
+		</>
 	)
 }
