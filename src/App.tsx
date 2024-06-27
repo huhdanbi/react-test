@@ -14,13 +14,13 @@ export default function App() {
       <Header />
       <div className="wrap-container">
         <LeftGnb />
-        <Box className="inner-container">
+        <div className="inner-container">
           <Box sx={{ borderRadius: 1 }} className="contents">
             <Suspense fallback={<Loading />}>
               <AppRouter />
             </Suspense>
           </Box>
-        </Box>
+        </div>
       </div>
     </Container>
   )

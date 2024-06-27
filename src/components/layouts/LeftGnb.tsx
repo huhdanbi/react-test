@@ -36,7 +36,7 @@ export default function LeftGnb() {
 				{
 					routeList.map((e, i) => (
 						<ListItem key={i}>
-							<Button component={Link} to={e.path} className={`link-gnb ${pathname === e.path ? "active" : ""}`}>
+							<Button component={Link} to={e.path} className={`link-gnb ${pathname === e.path && "active"}`}>
 								{e.icon}
 								{e.name}
 							</Button>

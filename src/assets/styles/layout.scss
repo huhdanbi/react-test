@@ -13,6 +13,16 @@ $cont-background: #eef2f6;
     height: $header-height;
     padding:0 25px;
     background-color:$base-background;
+
+    .inner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .right-sec {
+
+    }
   }
   
   
