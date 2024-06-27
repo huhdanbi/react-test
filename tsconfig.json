@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*" : ["src/*"]
+		},
+		"target": "es5", // 'es3', 'es5', 'es2015', 'es2016', 'es2017','es2018', 'esnext' 가능
+		"module": "esnext", //무슨 import 문법 쓸건지 'commonjs', 'amd', 'es2015', 'esnext'
+		"allowJs": true, // js 파일들 ts에서 import해서 쓸 수 있는지 
+		"lib": [ 
+			// 이렇게 lib를 세팅하면 JavaScript의 기본 기능들을 사용할 수 있다. 
+			// 이 네가지 옵션이 target을 es6로 했을 때 lib의 default 옵션이다. -> 안 쓰는것과 똑같다
+			// (lib이 비활성화 되었을때 default로 설정되어 있는 것들)
+			"dom",
+			"es6",
+			"dom.iterable",
+			"esnext"
+		],
+		"jsx": "preserve", // tsx 파일을 jsx로 어떻게 컴파일할 것인지 'preserve', 'react-native', 'react'
+		"declaration": true, //컴파일시 .d.ts 파일도 자동으로 함께생성 (현재쓰는 모든 타입이 정의된 파일)
+		// "removeComments": true, //컴파일시 주석제거 
+		"strict": true, //strict 관련, noimplicit 어쩌구 관련 모드 전부 켜기
+		"noImplicitAny": true, //any타입 금지 여부
+		"noImplicitThis": true, //this 키워드가 any 타입일 경우 에러내기
+		"strictNullChecks": true, //null, undefined 타입에 이상한 짓 할시 에러내기
+		"noUnusedLocals": true, //쓰지않는 지역변수 있으면 에러내기
+		"noUnusedParameters": true, //쓰지않는 파라미터 있으면 에러내기
+		"noImplicitReturns": true, //함수에서 return 빼먹으면 에러내기 
+		"moduleResolution": "node",
+		"noEmit": true, //true로 설정하면, 컴파일 해도 .js 파일이 생성되지 않는다
+		"noEmitOnError" : true, // .ts파일에 에러가 있으면 .js파일을 생성하지 않는다
+		"allowImportingTsExtensions": true, 
+		"allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+	}
+}
