@@ -6,14 +6,13 @@ import Loading from '@/components/Loading';
 import Header from '@/components/layouts/Header';
 import LeftGnb from '@/components/layouts/LeftGnb';
 
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
 export default function App() {
   const isNavOpend = useStore((state) => state.isNavOpend);
 
   return (
-    <Container className="wrap" disableGutters>
+    <div className="wrap">
       <Header />
       <div className="wrap-container">
         <LeftGnb />
@@ -25,7 +24,7 @@ export default function App() {
           </Box>
         </div>
       </div>
-    </Container>
+    </div>
   )
 }
 

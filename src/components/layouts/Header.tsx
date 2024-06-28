@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useStore } from '@/store/store';
 
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
+import { AppBar, Button } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
 
