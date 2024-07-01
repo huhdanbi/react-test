@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useStore } from '@/store/store';
+import { useCommonStore } from '@/store/commonStore';
 
 import {List,ListItem,Button} from '@mui/material';
 
@@ -25,14 +25,14 @@ const routeList = [
 ]
 
 export default function LeftGnb() {
-	const isNavOpend = useStore((state) => state.isNavOpend);
+	const isNavOpen = useCommonStore((state) => state.isNavOpen);
 	
 	const location = useLocation();
 	const { pathname } = location;
 
 	return (
 		<>
-			{ isNavOpend && 
+			{ isNavOpen && 
 				<div className="left-gnb">
 					<List className="list-gnb">
 						{

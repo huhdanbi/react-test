@@ -80,6 +80,27 @@ $cont-background: #eef2f6;
         padding: 20px 25px;
         background-color: $cont-background;
         overflow: auto;
+
+        .box-contents {
+          margin-top:20px;
+          padding:20px 15px;
+          background-color:#fff;
+          border-radius: 4px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        .search-box {
+          display: flex;
+          justify-content: flex-end;
+          padding: 20px;
+
+          > button{
+            margin-left: 5px;
+          }
+        }
       }
     }
 
@@ -98,5 +119,10 @@ $cont-background: #eef2f6;
     justify-content: center;
     align-items: center;
   }
+
+
+  .inp-dft { }
+
+
 
 }
