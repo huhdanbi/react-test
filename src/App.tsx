@@ -19,10 +19,9 @@ export default function App() {
       <div className="wrap-container">
         <LeftGnb />
         <div className={`inner-container ${isNavOpen ? '' : 'full'}`}>
+          <Loading />
           <Box sx={{ borderRadius: 1 }} className="contents">
-            <Suspense fallback={<Loading />}>
-              <AppRouter />
-            </Suspense>
+            <AppRouter />
           </Box>
         </div>
       </div>

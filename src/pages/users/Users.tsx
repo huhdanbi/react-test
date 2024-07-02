@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLoadingStore } from '@/store/commonStore';
 
 import { fetchUsers } from '@/api/users';
 import SearchBox from '@/components/layouts/SearchBox';
 
 import { Table, TableBody, TableCell, TableHead, TableRow, Pagination, Button } from '@mui/material';
-
-const Loading = React.lazy(() => import('@/components/Loading'));
 
 const headers = [
 	{ title: 'id' },
@@ -22,9 +21,10 @@ export default function Users() {
 	const [skip, setSkip] = useState<number>(0);
 	const [page, setPage] = useState<number>(1);
 	const [userList, setUserList] = useState<any[]>([]);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [pageCount, setPageCount] = useState<number | null>(null);
 	const [q, setQ] = useState<any>('');
+
+	const { useLoading } = useLoadingStore();
 
 	const navigator = useNavigate();
 
@@ -34,7 +34,7 @@ export default function Users() {
 
 	useEffect(() => {
 		const getUsers = async () => {
-			setIsLoading(true);
+			useLoading(true);
 
 			try {
 				await fetchUsers({ limit, skip, q }).then((res) => {
@@ -45,7 +45,8 @@ export default function Users() {
 				console.log(error);
 			}
 
-			setIsLoading(false);
+			useLoading(false);
+
 		}
 
 		getUsers();
@@ -67,7 +68,7 @@ export default function Users() {
 
 	return (
 		<>
-			{isLoading ? <Loading /> :
+			{
 				<>
 					<SearchBox onSearch={onSearch} />
 					<div className="box-contents">
