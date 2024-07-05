@@ -6,6 +6,16 @@ import { useAlertStore } from '@/store/alertStore';
 export default function CommonAlert() {
   const { ...props } = useAlertStore();
 
+  const onConfirm = () => {
+    props.onConfirm?.();
+    props.closeAlert();
+  }
+
+  const onCancel = () => {
+    props.onCancel?.();
+    props.closeAlert();
+  }
+
   return (
     <Dialog
       open={props.isAlertOpen}
@@ -23,9 +33,9 @@ export default function CommonAlert() {
 
       <DialogActions>
         {props.onConfirm && 
-          <Button onClick={props.onConfirm}>확인</Button>}
+          <Button onClick={onConfirm}>확인</Button>}
         {props.onCancel && 
-          <Button onClick={props.closeAlert}>취소</Button>}
+          <Button onClick={onCancel}>취소</Button>}
       </DialogActions>
     </Dialog>
   )

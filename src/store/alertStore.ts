@@ -10,8 +10,8 @@ type AlertState = {
 }
 
 type AlertAction = {
-  openAlert: (props: any) => void,
-  closeAlert: (props: any) => void,
+  openAlert: (props?: any) => void,
+  closeAlert: (props?: any) => void,
 }
 
 export const useAlertStore = create<AlertState & AlertAction>()(
