@@ -2,13 +2,20 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCommonStore } from '@/store/commonStore';
 
-import {List,ListItem,Button} from '@mui/material';
+import { List, ListItem, Button } from '@mui/material';
 
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import StyleRoundedIcon from '@mui/icons-material/StyleRounded';
 
-const routeList = [
+interface RouteList {
+	name: string,
+	path: string,
+	icon: any,
+	children?: RouteList[],
+}
+
+const routeList:RouteList[] = [
 	{
 		name: 'Home',
 		path: '/',
@@ -26,13 +33,13 @@ const routeList = [
 
 export default function LeftGnb() {
 	const isNavOpen = useCommonStore((state) => state.isNavOpen);
-	
+
 	const location = useLocation();
 	const { pathname } = location;
 
 	return (
 		<>
-			{ isNavOpen && 
+			{isNavOpen &&
 				<div className="left-gnb">
 					<List className="list-gnb">
 						{

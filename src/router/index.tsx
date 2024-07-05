@@ -11,7 +11,7 @@ import Profile from '@/pages/Profile/Profile';
 
 import Page404 from '@/pages/error/Page404';
 
-export default function AppRouter(){
+export default function AppRouter() {
 	return useRoutes([
 		{
 			path: '/',
@@ -38,7 +38,7 @@ export default function AppRouter(){
 			path: '/profile',
 			element: <Profile />
 		},
-		
+
 		/* 404 */
 		{
 			path: '/*',

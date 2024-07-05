@@ -27,7 +27,7 @@ type LoadingAction = {
 export const useLoadingStore = create<LoadingState & LoadingAction>()(
   immer((set) => ({
     isLoading: false,
-    useLoading: (isUse:boolean) => set((state) => {
+    useLoading: (isUse: boolean) => set((state) => {
       state.isLoading = isUse;
     })
   }))
